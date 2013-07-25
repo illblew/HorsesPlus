@@ -1,0 +1,53 @@
+name: HorsesPlus
+main: com.mikeprimm.HorsesPlus.HorsesPlus
+version: "${project.version}"
+author: mikeprimm
+depend: [ Horses ]
+
+commands:
+  hplus:
+    description: horsesplus commands.
+    usage: |
+           /<command> give <playername> <horsetype> <horsename> - Gives horse of type <horsetype> with name <horsename> to <playername>
+           /<command> give <playername> <horsetype> - Gives horse of type <horsetype> to <playername>
+           /<command> take <playername> <horsename> - Take horse with name <horsename> from <playername>
+           /<command> take <playername> * - Take all horses from <playername>
+           /<command> list <playername> - List the horses owned by <playername>
+permissions:
+  horsesplus.*:
+    description: Gives access to all horsesplus functions
+    children:
+      horsesplus.sign.create: true
+      horsesplus.sign.use: true
+      horsesplus.command.take: true
+      horsesplus.command.give: true
+  horsesplus.sign.create:
+    description: Allows creation of any HorsesPlus sign
+    children:
+      horsesplus.sign.summon.create: true
+      horsesplus.sign.dismiss.create: true
+      horsesplus.sign.buy.create: true
+  horsesplus.sign.use:
+    description: Allows use of any HorsesPlus sign
+    children:
+      horsesplus.sign.summon.use: true
+      horsesplus.sign.dismiss.use: true
+      horsesplus.sign.buy.use: true
+  horsesplus.command.take:
+    description: Allows use of the /hplus take command
+    default: op
+  horsesplus.command.give:
+    description: Allows use of the /hplus give command
+    default: op
+  horsesplus.sign.summon.create:
+    description: Allows creation of Summon signs
+    default: op
+  horsesplus.sign.dismiss.create:
+    description: Allows creation of Dismiss signs
+    default: op
+  horsesplus.sign.buy.create:
+    description: Allows creation of Buy signs for any horse type
+    default: op
+  horsesplus.sign.buy.horsetype.create:
+    description: Allows creation of Buy signs for horses of type 'horsetype'
+    default: op
