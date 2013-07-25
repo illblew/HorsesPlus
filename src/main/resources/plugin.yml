@@ -1,6 +1,6 @@
 name: HorsesPlus
 main: com.mikeprimm.HorsesPlus.HorsesPlus
-version: "${project.version}"
+version: "${project.version}-${BUILD_NUMBER}"
 author: mikeprimm
 depend: [ Horses ]
 
